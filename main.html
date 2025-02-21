@@ -13,28 +13,24 @@
         <label for="lname">Last Name:</label>
         <input type="text" id="lname" name="lname" required>
         <br><br>
-        <button type="submit">Submit</button>
+        <input type="submit" value="Submit"> <!-- Changed button to input -->
     </form>
 
     <script>
         function getFormvalue(event) {
-            event.preventDefault(); // Prevents form from refreshing the page
-            
-            // Get values and trim extra spaces
+            event.preventDefault(); // Prevent form refresh
+
             let firstName = document.getElementById("fname").value.trim();
             let lastName = document.getElementById("lname").value.trim();
-            
-            // Ensure at least one field has a value
-            if (firstName === "" && lastName === "") {
+
+            if (!firstName && !lastName) {
                 alert("Please enter your first and last name.");
                 return;
             }
 
-            // Display full name
             alert(`${firstName} ${lastName}`);
         }
 
-        // Attach event listener to form submission
         document.getElementById("nameForm").addEventListener("submit", getFormvalue);
     </script>
 </body>
